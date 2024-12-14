@@ -22,7 +22,6 @@ app.use('/books', bookRoutes);
 app.use('/loans', loanRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
-// Hata işleme middleware'i en sonda olmalı
 app.use(errorHandler);
 
 // Database connection

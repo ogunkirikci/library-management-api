@@ -17,7 +17,7 @@ export const errorHandler = (
     });
   }
 
-  // Sequelize hataları için özel işleme
+  // For sequelize unique constraint errors
   if (err.name === 'SequelizeUniqueConstraintError') {
     return res.status(409).json({
       status: 'error',
@@ -25,7 +25,7 @@ export const errorHandler = (
     });
   }
 
-  // Bilinmeyen hatalar için
+  // For unknown errors
   return res.status(500).json({
     status: 'error',
     message: 'Internal server error'

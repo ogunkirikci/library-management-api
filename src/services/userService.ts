@@ -19,7 +19,7 @@ export class UserService {
       throw new Error('User not found');
     }
 
-    // Geçmiş ödünç almaları bul (returnDate != null)
+    // Get past loans
     const pastLoans = await Loan.findAll({
       where: {
         userId: id,
@@ -31,7 +31,7 @@ export class UserService {
       }]
     });
 
-    // Şu an ödünç alınanları bul (returnDate == null)
+    // Get currently borrowed books
     const presentLoans = await Loan.findAll({
       where: {
         userId: id,
@@ -43,7 +43,7 @@ export class UserService {
       }]
     });
 
-    // İstenen formatta response oluştur
+    // Create the desired format response
     return {
       id: user.id || 0,
       name: user.name || 'Unknown',

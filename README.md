@@ -20,22 +20,23 @@ A RESTful API for managing a library system built with Node.js, Express, TypeScr
 
 1. **Clone the repository**
    ```bash
-   git clone repourl
+   git clone https://github.com/ogunkirikci/library-management-api
    cd library-management-api
 2. **Install dependencies**
     ```bash
     npm install
 3. **Create a `.env` file in the root directory with the following variables: .env**
-    ```PORT=3000
-    DB_HOST=localhost
-    DB_PORT=5432
-    DB_NAME=library
-    DB_USER=postgres
-    DB_PASSWORD=your_password
+    #### Linux/MacOS:
+        cp .env.example .env
+    #### Windows (PowerShell):
+        Copy-Item .env.example .env
+    #### Windows (Command Prompt - CMD):
+        copy .env.example .env
+    ### Also you can provide them with the following command
+        npm run env:init
 4. **Create and initailez the database**
     ```bash
     npm run db:create
-
 ## Database Schema
 
 ### Users Table
@@ -84,12 +85,10 @@ A RESTful API for managing a library system built with Node.js, Express, TypeScr
 - Development mode:
     ```bash
     npm run dev
-
 - Production mode:
     ```bash
     npm run build
     npm run start
-
 ## Project Structure
     src/
         ├── config/       # Configuration files

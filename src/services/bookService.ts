@@ -12,6 +12,7 @@ export class BookService {
   }
 
   async createBook(data: { name: string }) {
+    // Check if a book with the same name already exists
     const existingBook = await Book.findOne({
       where: {
         name: data.name

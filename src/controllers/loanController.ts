@@ -20,7 +20,7 @@ export class LoanController {
     try {
       const userId = parseInt(req.params.userId);
       const bookId = parseInt(req.params.bookId);
-      const rating = req.body.rating || 5; // Default rating 5 veya body'den alabilirsiniz
+      const rating = req.body.rating || 5; // Default rating is 5
       
       const loan = await this.loanService.returnBook(userId, bookId, rating);
       res.json(loan);
