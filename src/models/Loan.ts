@@ -10,6 +10,9 @@ interface LoanAttributes {
   borrowDate: Date;
   returnDate?: Date | null;
   rating?: number | null;
+  Book?: {
+    name: string;
+  };
 }
 
 class Loan extends Model<LoanAttributes> implements LoanAttributes {
@@ -19,6 +22,9 @@ class Loan extends Model<LoanAttributes> implements LoanAttributes {
   public borrowDate!: Date;
   public returnDate!: Date | null;
   public rating!: number | null;
+  public Book?: {
+    name: string;
+  };
 }
 
 Loan.init({
@@ -46,11 +52,11 @@ Loan.init({
     allowNull: true
   },
   rating: {
-    type: DataTypes.FLOAT,
+    type: DataTypes.INTEGER,
     allowNull: true,
     validate: {
       min: 1,
-      max: 5
+      max: 10
     }
   }
 }, {

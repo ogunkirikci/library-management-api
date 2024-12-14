@@ -6,6 +6,7 @@ import sequelize from './config/database';
 import userRoutes from './routes/userRoutes';
 import bookRoutes from './routes/bookRoutes';
 import loanRoutes from './routes/loanRoutes';
+import { errorHandler } from './middleware/errorHandler';
 const app = express();
 
 // Middleware
@@ -16,13 +17,10 @@ app.use(express.json());
 // Routes
 app.use('/users', userRoutes);
 app.use('/books', bookRoutes);
-app.use('/', loanRoutes);
+app.use('/loans', loanRoutes);
 
-// Error handling middleware
-app.use((err: Error, req: express.Request, res: express.Response, next: express.NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something broke!' });
-});
+// Hata işleme middleware'i en sonda olmalı
+app.use(errorHandler);
 
 // Database connection
 sequelize.sync({ force: true })

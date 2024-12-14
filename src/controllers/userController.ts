@@ -27,6 +27,7 @@ export class UserController {
   }
 
   async getUserById(req: Request, res: Response) {
+    // Check if the user exists
     try {
       const user = await this.userService.getUserById(Number(req.params.id));
       res.json(user);
