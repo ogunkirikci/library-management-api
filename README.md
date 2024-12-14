@@ -81,6 +81,8 @@ A RESTful API for managing a library system built with Node.js, Express, TypeScr
 * POST /borrow - Borrow a book
 * POST /return - Return a book with rating
 
+#### Also you can use /api-docs url for Swagger UI.
+
 ## Running the Application
 - Development mode:
     ```bash
