@@ -7,6 +7,8 @@ import userRoutes from './routes/userRoutes';
 import bookRoutes from './routes/bookRoutes';
 import loanRoutes from './routes/loanRoutes';
 import { errorHandler } from './middleware/errorHandler';
+import swaggerUi from 'swagger-ui-express';
+import { specs } from './config/swagger';
 const app = express();
 
 // Middleware
@@ -18,6 +20,7 @@ app.use(express.json());
 app.use('/users', userRoutes);
 app.use('/books', bookRoutes);
 app.use('/loans', loanRoutes);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Hata işleme middleware'i en sonda olmalı
 app.use(errorHandler);
